@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+body {
+	margin: 0;
+	font-family: 'Caveat', cursive;
+}
+
+nav {
+	margin: 0 0 20px;
+	width:100%;
+	display: flex;
+	justify-content: space-around;
+	font-size: 40px;
+	background: yellow;
+	box-shadow: 0 -200px 100px -120px cyan inset;
+	animation: gradient 5s infinite ease-in-out;
+}
+
+nav div{
+	cursor: pointer;
+}
+
+@keyframes gradient {
+	50% {
+		background: yellowgreen;
+    	box-shadow: 0 -200px 100px -100px skyblue inset;
+	}
+}
+
+
+.containerForHeroes{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	width: 60%;
+	margin: 0 auto ;
+	gap:10px;
+}
+
+.hero{
+	background: #dbd9d9;
+	border: 1px solid gray;
+	border-radius:30px;
+	max-width:350px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	cursor: pointer;
+	transition: background 0.5s;
+}
+
+.hero:hover{
+	background: lightcyan;
+	transition: background 0.5s;
+}
+
+.hero:hover .hero_phrase{
+	display: block;
+}
+
+.hero_phrase{
+	position: absolute;
+	top: 170px;
+	margin-left: 30px;
+	display: none;
+	font-size:30px;
+}
+
+.hero img{
+	max-width:350px;
+}
+
+.stats-box{
+	display: flex;
+	border: 1px solid darkcyan;
+	margin: 0 20px 20px;
+	border-radius: 30px;
+}
+
+.title {
+	padding-left:20px;
+	margin-right: 5%;
+	font-size: 25px;
+}
+
+.title p {
+	margin: 0;
+}
+
+.stats {
+	padding-top:30px;
+	display: flex;
+	flex-direction: column;
+	grid-gap: 3px;
+}
+
+input[type=range]{
+
+}
+
+.name {
+	margin-top:5px;
+	text-align: center;
+	font-size: 40px;
+}
+
+.choose-hero {
+	margin: 30px  auto;
+	width:40%;
+	font-size: 40px;
+	text-align: center;
+	cursor: pointer;
+	border: 5px solid darkcyan;
+	border-radius: 40px;
+	background:#fff;
+}
