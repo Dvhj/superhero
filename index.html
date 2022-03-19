@@ -7,11 +7,13 @@
 	<title>Document</title>
 </head>
 <body>
-	<nav>
-		<div>Главное меню</div>
+	<nav class="hoverBg">
+		<div class="help"> Подсказки</div>
 		<div>Магазин</div>
-		<div class='mainGold'>	Золото: 2</div>
+		<div class="changeChoice">Сбросить выбор</div>
+		<div class='mainGold'>	Золотишко: 0</div>
 	</nav>
+	<div class="choose-hero hoverBg">Выберите героя</div>
 	<div class="containerForHeroes">
 		<div class="hero hoverBg">
 			<div class="hero-box">
@@ -28,10 +30,10 @@
 					<p>Харизма</p>	
 				</div>
 				<div class="stats">
-					<img src="img/5stats.png" alt="">
-					<img src="img/3stats.png" alt="">
-					<img src="img/4stats.png" alt="">
-					<img src="img/2stats.png" alt="">
+					<img src="img/5stats.png" data-count='5' alt="">
+					<img src="img/3stats.png" data-count='3' alt="">
+					<img src="img/4stats.png" data-count='4' alt="">
+					<img src="img/2stats.png" data-count='2' alt="">
 				</div>
 			</div>
 		</div>
@@ -50,10 +52,10 @@
 					<p>Харизма</p>	
 				</div>
 				<div class="stats">
-					<img src="img/3stats.png" alt="">
-					<img src="img/3stats.png" alt="">
-					<img src="img/4stats.png" alt="">
-					<img src="img/5stats.png" alt="">
+					<img src="img/3stats.png" data-count='3' alt="">
+					<img src="img/3stats.png" data-count='3' alt="">
+					<img src="img/4stats.png" data-count='4' alt="">
+					<img src="img/5stats.png" data-count='5' alt="">
 				</div>
 			</div>
 		</div>
@@ -72,15 +74,27 @@
 					<p>Харизма</p>	
 				</div>
 				<div class="stats">
-					<img src="img/5stats.png" alt="">
-					<img src="img/3stats.png" alt="">
-					<img src="img/5stats.png" alt="">
-					<img src="img/2stats.png" alt="">
+					<img src="img/5stats.png" data-count='5' alt="">
+					<img src="img/3stats.png" data-count='3' alt="">
+					<img src="img/5stats.png" data-count='5' alt="">
+					<img src="img/2stats.png" data-count='2' alt="">
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="choose-hero hoverBg">Выберите героя</div>
+	<div class="helpBox">
+		<p>В разделе 'Магазин' можно приобрести оружие для героя, а также вспомогательный инвентарь</p>
+		<p>Раздел 'Сбросить выбор' позволяет изменить выбор героя, либо выбор прокачки на этапе начала игры</p>
+		<p>В разделе 'Золотишко' отображается ваша текущая экономическая ситуация в кармане</p>
+
+		<ul>Характеристики: <li>Сила - влияет на ваш наносимый урон</li>
+							 <li>Интеллект - позволяет думать</li>
+							 <li>Ловкость - влияет на скорость принятия решений</li>
+							 <li>Харизма - влияет на уверенность в диалогах</li>
+		</ul>
+		<div class="closeHelpBox hoverBg">Закрыть</div>
+	</div>
+	<div class="startGame hoverBg"> -_- Начать игру -_-</div>
 	<script src='index.js'></script>
 </body>
 </html>
