@@ -30,6 +30,9 @@ nav div{
 	cursor: pointer;
 }
 
+.newGame {
+	display: none;
+}
 
 
 .mainGold {

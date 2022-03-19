@@ -8,10 +8,31 @@ const startGame = document.querySelector('.startGame')
 const help = document.querySelector('.help')
 const helpBox = document.querySelector('.helpBox')
 const closeHelpBox = document.querySelector('.closeHelpBox')
+const newGame = document.querySelector('.newGame')
 
 
 let bonusCount = 5
 let countGold = 0
+
+checkStartSettings()
+
+function checkStartSettings() {
+	if (localStorage.getItem('gold')) {
+		mainGold.innerHTML = `Золотишко:${localStorage.getItem('gold')}`
+	} else {
+		mainGold.innerHTML = `Золотишко:${countGold}`
+	}
+	if (localStorage.getItem('checkGameStart') == 'true'){
+		changeChoice.style.display = 'none'
+		newGame.style.display = 'block'
+		if (containerForHeroes != null) {
+			containerForHeroes.style.display = 'none'
+			choose_hero.style.display = 'none'
+		} else {
+			return
+		}
+	}
+}
 
 help.addEventListener('click', () => {
 	helpBox.style.display = 'block'
@@ -21,15 +42,30 @@ help.addEventListener('click', () => {
 
 closeHelpBox.addEventListener('click', () => {
 	helpBox.style.display = 'none'
-	choose_hero.style.display = 'block'
-	if (containerForHeroes.children.length > 2) {
-		containerForHeroes.style.display = 'grid'
+	if (localStorage.getItem('checkGameStart') == 'true'){
+		return
 	} else {
-		containerForHeroes.style.display = 'flex'
+		choose_hero.style.display = 'block'
+		if (containerForHeroes.children.length > 2) {
+			containerForHeroes.style.display = 'grid'
+		} else {
+			containerForHeroes.style.display = 'flex'
+		}
 	}
 })
 
-changeChoice.addEventListener('click', () => {location.reload()})
+changeChoice.addEventListener('click', () => {
+	localStorage.setItem('gold', 0)
+	location.reload()
+})
+
+
+newGame.addEventListener('click' , () => {
+	// window.location.href = 'file:///D:/%D0%A7%D1%82%D0%BE-%D1%82%D0%BE/%D1%81%D0%B0%D0%B9%D1%82%D1%8B/game2/index.html'
+	window.location.href = 'index.html'
+	localStorage.clear()
+
+})
 
 // hero.forEach( elem => {
 // 	elem.addEventListener('click', () => {
@@ -111,8 +147,8 @@ hero.forEach( elem => {
 		
 
 		containerForHeroes.children[1].addEventListener('click', (event) => {
-			hideGoldButton()
 			if (event.target.innerHTML === 'Сила') {
+				hideGoldButton()
 				console.log(++statsCountStrength)
 				console.log(bonusCount--)
 				if (bonusCount < 0) {
@@ -123,6 +159,7 @@ hero.forEach( elem => {
 					localStorage.setItem(1, statsCountStrength)
 				}
 			} else if (event.target.innerHTML === 'Интелект') {
+				hideGoldButton()
 				console.log(++statsCountIntel)
 				console.log(bonusCount--)
 				if (bonusCount < 0) {
@@ -133,6 +170,7 @@ hero.forEach( elem => {
 					localStorage.setItem(2, statsCountIntel)
 				}
 			} else if (event.target.innerHTML === 'Ловкость') {
+				hideGoldButton()
 				console.log(++statsCountAgility)
 				console.log(bonusCount--)
 				if (bonusCount < 0) {
@@ -144,6 +182,7 @@ hero.forEach( elem => {
 				}
 				// addStats(statsCountAgility, 2, 3)
 			} else if (event.target.innerHTML === 'Харизма') {
+				hideGoldButton()
 				console.log(++statsCountCharisma)
 				console.log(bonusCount--)
 				if (bonusCount < 0) {
@@ -166,7 +205,8 @@ hero.forEach( elem => {
 			if(countGold > 200) {
 				return
 			} else {
-				mainGold.innerHTML = `Золотишко:${countGold+200}`
+				countGold = countGold + 200
+				mainGold.innerHTML = `Золотишко:${countGold}`
 				startGame.style.marginTop = '30px'
 			}
 		})
@@ -176,6 +216,14 @@ hero.forEach( elem => {
 function hideGoldButton() {
 	containerForHeroes.children[1].children[8].style.display = "none"
 }
+
+startGame.addEventListener('click', () => {
+	localStorage.setItem('gold', countGold)
+	localStorage.setItem('checkGameStart', true)
+	// window.location.href = 'file:///D:/%D0%A7%D1%82%D0%BE-%D1%82%D0%BE/%D1%81%D0%B0%D0%B9%D1%82%D1%8B/game2/game.html'
+	window.location.href = 'game.html'
+})
+
 
 // function addStats(statsCount, pos, locStrPos) {
 // 	hideGoldButton();
