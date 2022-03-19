@@ -21,8 +21,12 @@ help.addEventListener('click', () => {
 
 closeHelpBox.addEventListener('click', () => {
 	helpBox.style.display = 'none'
-	containerForHeroes.style.display = 'grid'
 	choose_hero.style.display = 'block'
+	if (containerForHeroes.children.length > 2) {
+		containerForHeroes.style.display = 'grid'
+	} else {
+		containerForHeroes.style.display = 'flex'
+	}
 })
 
 changeChoice.addEventListener('click', () => {location.reload()})
