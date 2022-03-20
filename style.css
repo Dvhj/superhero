@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 
+
 body {
 	margin: 0;
 	font-family: 'Caveat', cursive;
@@ -11,7 +12,7 @@ body {
 }
 
 nav {
-	margin: 0 0 20px;
+	margin: 0 0 10px;
 	width:100%;
 	display: flex;
 	justify-content: space-around;
@@ -214,3 +215,4 @@ input[type=range]{
 	margin-top: 100vh;
 	transition: margin 0.5s ease-out;
 }
+

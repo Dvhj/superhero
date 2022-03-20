@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+
+body {
+	margin: 0;
+	font-family: 'Caveat', cursive;
+	/*background: #f0d6cb;*/
+	background: url('https://images.wallpaperscraft.ru/image/single/poligon_low_poly_art_130453_1920x1200.jpg') ;
+	color: #4b2d9a;
+	user-select: none; 
+	overflow: hidden;
+}
+
+.container {
+	margin: 0 auto;
+	border: 2px solid white;
+	width: 93vw;
+	height: 91vh;
+	background: #fffff1;
+	border: 2px solid rgba(11, 105, 105, 0.6);
+	border-radius: 40px;
+}
+.contGameplay{
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns : 1fr 1fr 1fr 1fr 1fr;
+}
+
+.elem{
+	width:99%;
+
+	cursor: pointer;
+	font-size: 40px;
+}
+
+.elem img {
+	width: 100%;
+}
+
+.hide{
+	display: none;
+}
+
+.contText {
+	font-size: 40px;
+}
+
+.contText div{
+	margin: 0 50px;
+}
+
+.next {
+	width:20%;
+	font-size: 40px;
+	text-align: center;
+	cursor: pointer;
+	border: 2px solid rgba(11, 105, 105, 0.6);
+	border-radius: 40px;
+	transition: background 0.5s;
+	box-shadow: 8px 8px 5px -5px rgba(11, 105, 105, 0.6);
+	background: #fffff1;
+	transition: margin 0.5s ease-out;
+}
+
+.ask {
+	border:2px solid rgba(11, 105, 105, 0.6);
+	padding-left:10px;
+	font-size: 30px;
+	border-radius: 40px;
+	margin-bottom:2px;
+}

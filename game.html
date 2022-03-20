@@ -4,6 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="game.css">
 		<title>Document</title>
 	</head>
 	<body>
@@ -15,7 +16,9 @@
 			<div class='mainGold'>	Золотишко: 0</div>
 		</nav>
 		<div class="helpBox">
-			<p>В разделе 'Магазин' можно приобрести оружие для героя, а также вспомогательный инвентарь</p>
+			<p> Настоятельно не рекомендуем пользоваться кнопками обновления страницы и переходами назад/вперед во избежания багов </p>
+			<hr>
+			<p>В разделе 'Магазин' можно приобрести оружие для героя, а также вспомогательный инвентарь. Магазин доступен только на определенных локациях</p>
 			<p>Раздел 'Сбросить выбор' позволяет изменить выбор героя, либо выбор прокачки на этапе начала игры</p>
 			<p>В разделе 'Золотишко' отображается ваша текущая экономическая ситуация в кармане</p>
 
@@ -26,7 +29,32 @@
 			</ul>
 			<div class="closeHelpBox hoverBg">Закрыть</div>
 		</div>
-		<div>Играйте</div>
-		<script src='index.js'></script>
+		<main>
+			<div class="container contText">
+				<div>
+					<p>Шел третий месяц изнурительного противостояния между двумя городами-государствами: Кронвилем и Балстоуном.</p>
+					<p> Шпионы обоих городов рыскали в поисках слабых мест врага, ну а стража хватала всех подряд, кто на их взгляд был подозрителен.</p>
+					<br>
+					<p> Именно в этот период из далеких земель появился человек, который совсем не знал о местных событиях, а его нахождение здесь должно было продлиться не более пары дней </p>
+					<br>
+					<p>Но все как обычно идет не по плану...</p>
+					<div class="next hoverBg">Продолжить</div>
+				</div>
+			</div>
+			<div class="container contGameplay hide">
+				<div class="elem"></div>
+				<div class="elem"></div>
+				<div class="elem"></div>
+				<div class="elem"></div>
+				<div class="elem"> <img src="img/town-trees.png" alt=""></div>
+				<div class="elem  heroPosition"></div>
+				<div class="elem"></div>
+				<div class="elem"></div>
+				<div class="elem"></div>
+				<div class="elem secondPosition"> </div>
+			</div>
+		</main>
+		<script src='index.js' defer></script>
+		<script src='game.js' defer></script>
 	</body>
 </html>

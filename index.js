@@ -13,6 +13,7 @@ const newGame = document.querySelector('.newGame')
 
 let bonusCount = 5
 let countGold = 0
+let heroId
 
 checkStartSettings()
 
@@ -61,37 +62,16 @@ changeChoice.addEventListener('click', () => {
 
 
 newGame.addEventListener('click' , () => {
+	if (confirm('Вы уверены, что хотите начать Новую игру ?')) {
 	// window.location.href = 'file:///D:/%D0%A7%D1%82%D0%BE-%D1%82%D0%BE/%D1%81%D0%B0%D0%B9%D1%82%D1%8B/game2/index.html'
-	window.location.href = 'index.html'
-	localStorage.clear()
+		window.location.href = 'index.html'
+		localStorage.clear()
+	} else {
+		return
+	}
 
 })
 
-// hero.forEach( elem => {
-// 	elem.addEventListener('click', () => {
-// 		console.log(elem.children[0].children[1].src)
-// 		containerForHeroes.style.display = 'none'
-// 		choose_hero.innerHTML = `Выбран ${elem.children[0].children[0].innerHTML} <img src="${elem.children[0].children[1].src}" alt="" width="300px">`
-// 		choose_hero.style.display = 'flex'
-// 		setTimeout(() => {
-// 			choose_hero.style.position = 'absolute'
-// 			choose_hero.style.bottom = 0
-// 			choose_hero.style.left = 0
-// 			choose_hero.style.border = 'none'
-// 			choose_hero.innerHTML = `<img src="${elem.children[0].children[1].src}" alt="" width="300px">`
-// 		}, 2000)
-// 	})
-// })
-
-// let x = 1;
-// choose_hero.addEventListener('click', () => {
-// 	if (x > 5){
-// 		return
-// 	} else {
-// 	 	statsHulk.children[1].children[1].src = `img/${x}stats.png`
-// 		x++
-// 	}
-// })
 
 hero.forEach( elem => {
 	elem.addEventListener('click', () => {
@@ -99,7 +79,7 @@ hero.forEach( elem => {
 			<div class="hero hoverBg">
 				<div class="hero-box">
 					<div class="name"> ${elem.children[0].children[0].innerHTML}</div>
-					<img src="${elem.children[0].children[1].src}" class="hulk"  alt="hulk">
+					<img src="${elem.children[0].children[1].src}" >
 					<div class="hero_phrase">${elem.children[0].children[2].innerHTML} !</div>
 				</div>
 				<div class="stats-box statsHulk">
@@ -133,7 +113,8 @@ hero.forEach( elem => {
 		containerForHeroes.style.display = 'flex'
 		containerForHeroes.style.justifyContent = 'center'
 		choose_hero.innerHTML = `У вас есть 5 очков навыков, распределите их по желанию. Либо выберите получение дополнительного золота`
-
+		
+		heroImage = elem.children[0].children[1].src
 
 		let statsCountStrength = containerForHeroes.children[0].children[1].children[1].children[0].dataset.count 
 		let statsCountIntel = containerForHeroes.children[0].children[1].children[1].children[1].dataset.count 
@@ -218,6 +199,7 @@ function hideGoldButton() {
 }
 
 startGame.addEventListener('click', () => {
+	localStorage.setItem('hero' , heroImage)
 	localStorage.setItem('gold', countGold)
 	localStorage.setItem('checkGameStart', true)
 	// window.location.href = 'file:///D:/%D0%A7%D1%82%D0%BE-%D1%82%D0%BE/%D1%81%D0%B0%D0%B9%D1%82%D1%8B/game2/game.html'
