@@ -19,12 +19,12 @@ function startMainGame() {
 		elem[1].style.paddingTop = '50px'
 	}, 500)
 	setTimeout(() => {
-		elem[8].innerHTML = 'Стой, кто такой и куда направляешься !'
+		elem[6].innerHTML = 'Стой, кто такой и куда направляешься !'
 		setTimeout(() => {
-			elem[6].innerHTML = '<div class="ask" data-react="good">Я простой путешественник, направляюсь в город Балстоун</div> <div class="ask" data-react="bad"> Вы кто такие чтоб меня спрашивать, псы!</div>' 
-			result(elem[6], elem[8])
-		} , 500)
-	}, 500)
+			elem[5].innerHTML = '<div class="ask" data-react="good">Я простой путешественник, направляюсь в город Балстоун</div> <div class="ask" data-react="bad"> Вы кто такие чтоб меня спрашивать, псы!</div>' 
+			result(elem[5], elem[6])
+		} , 2000)
+	}, 3000)
 }
 
 function result(item, guard) {
@@ -33,27 +33,27 @@ function result(item, guard) {
 		console.log(event.target)
 		if ( event.target.dataset.react == 'bad') {
 			setTimeout(() => {
-				fight()
-				elem[8].innerHTML = 'Взять его!!!'
+				elem[6].innerHTML = 'Взять его!!!'
 				}, 500)
+			setTimeout(fight, 1000)
 		} else {
 			setTimeout(() => guard.innerHTML = 'oK', 500)
 			elem[1].innerHTML = ''
+			elem[5].innerHTML = ''
 			elem[6].innerHTML = ''
-			elem[8].innerHTML = ''
 		}
 	})
 }
 
 function fight() {
 	if( localStorage.getItem(1) > 5) {
+		elem[5].innerHTML = ''
 		elem[6].innerHTML = ''
-		elem[8].innerHTML = ''
 		elem[1].innerHTML = 'Заявязалась ожесточенная драка. Но герою удалось победить стражников. '
 	} else {
 		elem[1].innerHTML = 'Вас убили как собаку сутулую, вы слабый'
+		elem[5].innerHTML = ''
 		elem[6].innerHTML = ''
-		elem[8].innerHTML = ''
-		elem[5].children[0].style.transform = 'rotate(-90deg)'
+		elem[4].children[0].style.transform = 'rotate(-90deg)'
 	}
 }

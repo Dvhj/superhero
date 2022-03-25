@@ -160,6 +160,7 @@ input[type=range]{
 
 .choose-hero {
 	margin: 10px  auto;
+	height: 90px;
 	width:90%;
 	font-size: 40px;
 	text-align: center;
