@@ -12,11 +12,20 @@ next.addEventListener('click', () => {
 	startMainGame()
 })
 
+// function textToType(item, pos) {
+// 	let text = Array.from(item);
+// 	console.log(text)
+// 	text.forEach(i => {
+// 		  console.log(i)
+// 	})
+// }
+
 function startMainGame() {
 	heroPosition.innerHTML = `<img src="${localStorage.getItem('hero')}" title="Сила - ${localStorage.getItem('1')}" class="iolo"  alt="iolo">`
 	secondPosition.innerHTML = `<img src="img/guard2.png" title ="Сила - (1-5)" alt="">`
 	setTimeout( () => {
 		elem[1].innerHTML = 'Герой подходил к городу Балстоун, когда дорогу ему перегородила  стража'
+		// textToType("Герой подходил к городу Балстоун, когда дорогу ему перегородила стража", elem[1])
 		elem[1].style.paddingTop = '50px'
 	}, 500)
 	setTimeout(() => {
@@ -40,13 +49,18 @@ function result(item, guard) {
 				}, 500)
 			setTimeout(fight, 2000)
 		} else if ( event.target.dataset.react == 'good'){
-			setTimeout(() => guard.innerHTML = 'oK', 500)
+			setTimeout(() => {guard.innerHTML = 'oK, посмотрим твои документы'; setTimeout(() => {
+				elem[1].innerHTML = 'Стражники проверили подорожную грамоту, поставили печать, заглянули в сумку и, не найдя ничего интересного, нехотя пропустили героя'
+				setTimeout(() => elem[6].innerHTML = 'Лааадно, проходи и проваливай с глаз, тьфуу', 4000)
+				}, 1200)
+			}, 500)
 			elem[1].innerHTML = ''
 			elem[5].innerHTML = ''
 			elem[6].innerHTML = ''
 		} else return
 	})
 }
+
 
 function fight() {
 	if( localStorage.getItem(1) > 5) {
