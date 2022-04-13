@@ -4,6 +4,7 @@ const contGameplay = document.querySelector('.contGameplay')
 const heroPosition = document.querySelector('.heroPosition')
 const secondPosition = document.querySelector('.secondPosition')
 const elem = document.querySelectorAll('.elem')
+const shop = document.querySelector('.shop')
 
 
 next.addEventListener('click', () => {
@@ -51,7 +52,10 @@ function result(item, guard) {
 		} else if ( event.target.dataset.react == 'good'){
 			setTimeout(() => {guard.innerHTML = 'oK, посмотрим твои документы'; setTimeout(() => {
 				elem[1].innerHTML = 'Стражники проверили подорожную грамоту, поставили печать, заглянули в сумку и, не найдя ничего интересного, нехотя пропустили героя'
-				setTimeout(() => elem[6].innerHTML = 'Лааадно, проходи и проваливай с глаз, тьфуу', 4000)
+				setTimeout(() => {
+					elem[6].innerHTML = 'Лааадно, проходи и проваливай с глаз, тьфуу'
+					setTimeout(()=> town(), 2000)
+					}, 4000)
 				}, 1200)
 			}, 500)
 			elem[1].innerHTML = ''
@@ -74,7 +78,11 @@ function fight() {
 			elem[5].innerHTML = '<div class="ask hoverBg" data-choose="loot">Залутать добычу</div> <div class="ask hoverBg" data-choose="go"> Продолжить путь</div>'
 			elem[5].addEventListener('click', (event) => {
 				if (event.target.dataset.choose == 'loot') {looting()}
-			else if (event.target.dataset.choose == 'go') { elem[1].innerHTML = 'Герой направился в город..'; ;elem[5].innerHTML = ''}
+			else if (event.target.dataset.choose == 'go') { 
+				elem[1].innerHTML = 'Герой направился в город..'; 
+				elem[5].innerHTML = ''
+				setTimeout(()=> town(), 2000)
+				}
 			})
 		}, 3000 )
 	} else {
@@ -105,9 +113,20 @@ function looting() {
 		localStorage.setItem('gold', gold)
 		mainGold.innerHTML = `Золотишко:${localStorage.getItem('gold')}`
 		elem[5].innerHTML = ''
+		setTimeout(()=> elem[1].innerHTML = 'Герой направился в город..', 2000)
+		setTimeout(()=> town(), 3600)
 	} else {
 		elem[1].innerHTML = 'Вы случайно задеваете в рюкзаке нож стражника и полчаете ранение. Сила уменьшена на 1';
 		localStorage.setItem('1', +localStorage.getItem('1')-1)
 		heroPosition.innerHTML = `<img src="${localStorage.getItem('hero')}" title="Сила - ${localStorage.getItem('1')}" class="iolo"  alt="iolo">`
+		setTimeout(()=> elem[5].innerHTML = 'Вот дерьмо', 1000)
+		setTimeout(()=> town(), 2000)
 	}
+}
+
+
+function town(){
+	elem.forEach( item => item.innerHTML = '')
+	shop.classList.add('shopActive')
+	contGameplay.classList.add('street')
 }
