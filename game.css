@@ -16,6 +16,35 @@ body {
 	border-radius: 20px;
 }
 
+.shopBox {
+	display: none;
+	position: absolute; 
+	top: 5rem;
+	left: 5%;
+	width:90%;
+	font-size: 40px;
+	text-align: center;
+	cursor: pointer;
+	border: 2px solid rgba(11, 105, 105, 0.6);
+	border-radius: 40px;
+	box-shadow: 8px 8px 5px -5px rgba(11, 105, 105, 0.6);
+	background: #fffff1;
+}
+
+.closeShop{
+	margin: 10px  auto;
+	width:20%;
+	font-size: 40px;
+	text-align: center;
+	cursor: pointer;
+	border: 2px solid rgba(11, 105, 105, 0.6);
+	border-radius: 40px;
+	transition: background 0.5s;
+	box-shadow: 8px 8px 5px -5px rgba(11, 105, 105, 0.6);
+	background: #fffff1;
+	transition: margin 0.5s ease-out;
+}
+
 .container {
 	margin: 0 auto;
 	border: 2px solid white;
@@ -93,3 +122,4 @@ body {
 	background-size: 100% auto;
    background-position: center center;
 }
+

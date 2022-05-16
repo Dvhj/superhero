@@ -5,7 +5,11 @@ const heroPosition = document.querySelector('.heroPosition')
 const secondPosition = document.querySelector('.secondPosition')
 const elem = document.querySelectorAll('.elem')
 const shop = document.querySelector('.shop')
+const shopBox = document.querySelector('.shopBox')
+const closeShop = document.querySelector('.closeShop')
 
+
+let shopActive = false
 
 next.addEventListener('click', () => {
 	contText.style.display = 'none'
@@ -20,6 +24,7 @@ next.addEventListener('click', () => {
 // 		  console.log(i)
 // 	})
 // }
+
 
 function startMainGame() {
 	heroPosition.innerHTML = `<img src="${localStorage.getItem('hero')}" title="Сила - ${localStorage.getItem('1')}" class="iolo"  alt="iolo">`
@@ -129,4 +134,17 @@ function town(){
 	elem.forEach( item => item.innerHTML = '')
 	shop.classList.add('shopActive')
 	contGameplay.classList.add('street')
+	shopActive = true
 }
+
+shop.addEventListener('click', () => {
+	if (shopActive == true) {
+		shopBox.style.display = 'block'
+	} else {
+		return
+	}
+})
+
+closeShop.addEventListener('click', () => {
+	shopBox.style.display = 'none'
+})
